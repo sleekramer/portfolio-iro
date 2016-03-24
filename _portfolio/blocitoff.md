@@ -2,7 +2,7 @@
 layout: post
 title: Blocitoff
 feature-img: "img/sample_feature_img.png"
-thumbnail-path: "https://d13yacurqjgara.cloudfront.net/users/3217/screenshots/2030966/blocjams_1x.png"
+thumbnail-path: "img/Blocitoff_screenshot.gif"
 short-description: To-do List Application with API.
 
 ---
@@ -24,13 +24,13 @@ I wanted to implement an API for Blocitoff to allow users to manage their to-do 
 
 After some searching, I discovered the Tiddle gem, a lightweight token-based authentication solution for Devise. I had to install the gem and execute some setup to get it working. First, I had to add a `:token_authenticatable` attribute to my Devise::User model. Then I generated a model to store authentication tokens, which Tiddle requires to have four attributes: body, last_used, ip_address, and user_agent. After assigning the requisite `:has_many` and `:belongs_to` relationships for authentication tokens, api user sessions controller to generate and return an authentication token upon session creation:
 
-```ruby
+{% highlight ruby %}
 def create
   user = warden.authenticate!(scope: :user)
   token = Tiddle.create_and_return_token(user, request)
   render json: { authentication_token: token }
 end
-```
+{% endhighlight %}
 
 Running the application locally, a user can sign in to Blocitoff from the command-line with the following curl command:
 

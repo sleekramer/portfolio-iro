@@ -2,7 +2,7 @@
 layout: post
 title: BlocJams and BlocJamsAngular
 feature-img: "img/sample_feature_img.png"
-thumbnail-path: "https://d13yacurqjgara.cloudfront.net/users/3217/screenshots/2030966/blocjams_1x.png"
+thumbnail-path: "img/animated_BlocJams_screenshots.gif"
 short-description: A Spotify replica, learning exercise for vanilla Javascript, JQuery, HTML, CSS, and AngularJS.
 
 ---
@@ -24,7 +24,7 @@ One of the trickiest features to implement in BlocJams was the seek bar function
 
 The first thing to do what create a function that would update the css of the head and fill of the seek bar based on the current playback percentage or relative position of a click or mousemove that should update the seek bar:
 
-```Javascript
+{% highlight javascript %}
 var updateSeekPercentage = function ($seekBar, seekBarFillRatio) {
     var offsetXPercent = seekBarFillRatio * 100;
     offsetXPercent = Math.max(0, offsetXPercent);
@@ -34,7 +34,7 @@ var updateSeekPercentage = function ($seekBar, seekBarFillRatio) {
     $seekBar.find('.fill').width(percentageString);
     $seekBar.find('.thumb').css({left: percentageString});
 };
-```
+{% endhighlight %}
 
 The next step was to listen for the two types of events for the seek bar (clicks and mousemove). For each event the callback function will find the relative position of the event, click or mousemove followed by mouseup, and use that to calculate the `seekBarFillRatio`, which is subsequently passed to the `updateSeekPercentage()` function.
 

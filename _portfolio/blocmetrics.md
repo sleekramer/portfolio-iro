@@ -2,7 +2,7 @@
 layout: post
 title: BlocMetrics
 feature-img: "img/sample_feature_img.png"
-thumbnail-path: "https://d13yacurqjgara.cloudfront.net/users/3217/screenshots/2030966/blocjams_1x.png"
+thumbnail-path: "img/Blocmetrics_screenshot.gif"
 short-description: Analytics service to track user events on websites.
 
 ---
@@ -24,7 +24,7 @@ The solution to this problem was to provide a javascript snippet that used the b
 
 The client side javascript:
 
-``` Javascript
+{% highlight javascript %}
 var blocmetrics = {};
 blocmetrics.report = function(eventName) {
   var event = {event: { name: eventName }};
@@ -33,7 +33,7 @@ blocmetrics.report = function(eventName) {
   request.setRequestHeader('Content-Type', 'application/json');
   request.send(JSON.stringify(event));
 }
-```
+{% endhighlight %}
 
 is included in the user's application and then they can define their own javascript events to trigger the `blometrics.report()` function, which will post events to Blocmetrics.
 

@@ -16,3 +16,28 @@
 // Partials
 @import 'includes/header';
 @import 'includes/footer';
+
+code.highlighter-rouge {
+  padding: 0.1rem 0.25rem;
+  border-radius: 3px;
+  background-color: #f2f2f2;
+  border: 1px solid #cccccc;
+  line-height: 1.5rem;
+  font-size: 1.1rem;
+}
+
+figure > pre {
+    border: #A9A9A9 2px solid;
+    padding: 1rem;
+    border-radius: 5px;
+    background-color: #F2F2F2;
+}
+
+.project-img {
+  border: 5px solid rgba(249, 135, 82, 0.8);
+  border-radius: 2px;
+}
+
+.work {
+  padding: 5% 10%;
+}

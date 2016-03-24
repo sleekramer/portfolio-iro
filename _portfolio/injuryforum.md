@@ -2,7 +2,7 @@
 layout: post
 title: InjuryForum
 feature-img: "img/sample_feature_img.png"
-thumbnail-path: "https://d13yacurqjgara.cloudfront.net/users/3217/screenshots/2030966/blocjams_1x.png"
+thumbnail-path: "img/animated_InjuryForum_screenshots.gif"
 short-description: Forum site for skeletomuscular injuries.
 
 ---
@@ -22,14 +22,14 @@ One of the features I wanted to include was the ability for users to upload phot
 
 The Refile gem requires the creation of an image model, that can be polymorphically associated with other models. Once you have the image model setup and the associations made, Refile makes it very simple for you to connect an S3 bucket to your application by generating an initializer file, in which you specify your image storage service. In this case, I had to include the information for my S3 bucket like so:
 
-``` Ruby
+{% highlight ruby %}
 aws = {
   access_key_id: ENV["ACCESS_KEY_ID"],
   secret_access_key: ENV["SECRET_ACCESS_KEY"],
   region: "region",
   bucket: "bucket-name",
 }
-```
+{% endhighlight %}
 
 The last piece of the puzzle was to complete the form submission for images, which requires the use of the Refile :`:images_files` object.
 

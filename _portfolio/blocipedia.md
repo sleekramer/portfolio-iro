@@ -2,7 +2,7 @@
 layout: post
 title: Blocipedia
 feature-img: "img/sample_feature_img.png"
-thumbnail-path: "https://d13yacurqjgara.cloudfront.net/users/3217/screenshots/2030966/blocjams_1x.png"
+thumbnail-path: "img/animated_Blocipedia_screenshots.gif"
 short-description: Create, Share, and Update wikis on any subject you choose.
 
 ---
@@ -26,23 +26,24 @@ Pundit is a popular Ruby gem used for user authorization. The implementation of 
 
 For example, the `WikisPolicy::create?` looks like this:
 
-```ruby
+{% highlight ruby %}
 def create?
   user.premium? || user.admin?
 end
-```
+{% endhighlight %}
 
 Since I allowed all users to create wikis, I use a conditional to call this `authorize` method only if the wiki being created is a private wiki.
 
 The last benefit of using Pundit, is the allowance of a policy scope class, `class Scope` nested within the aforementioned policy class. Pundit assumes that this class will have access to a user object and a scope of some sort, which is passed in when you call the `policy_scope` Pundit method. The class also needs a `resolve` method that will return the proper scope of a collection based on the user's authorization. For the WikiPolicy::Scope class, the main purpose was to filter the scope of wikis index for users. I returned all wikis for admin users, and only public and privately owned or operated wikis for premium and standard users. Pundit makes the use of this class very simple in the corresponding controller:
 
-```ruby
+{% highlight ruby %}
 class WikisController ...
 
 def index
   @wikis = policy_scope(Wiki.all)
 end
-```
+{% endhighlight %}
+
 The `:scope` object is set to all wikis and then the resolve method is automatically called and filters out the unauthorized wikis and returns the remainder to be assigned to the `@wikis` variable.
 
 ### Live Markdown Preview
@@ -51,7 +52,7 @@ I allowed users of Blocipedia to write and edit wiki content using markdown synt
 
 After some searching I discovered the Marked library, a markdown parser and compiler, which I was able to use in the wiki#edit and #new views to render a live preview. The benefit of using marked was the minimal setup and the ease of use, I just needed to include the library and then write a little snippet of Javascript:
 
-```Javascript
+{% highlight javascript %}
 marked.setOptions({
   highlight: function (code) {
     return require('highlight.js').highlightAuto(code).value;
@@ -71,7 +72,7 @@ $(document).ready(function(){
     convertMarkdown($(this), '#markdown_body')
   });
 });
-```
+{% endhighlight %}
 
 I configured marked to user `highlight.js` and then wrote a simple function `convertMarkdown()`, which I used as a callback to be fired upon `keyup` events within the title and body input fields. The result produces a properly styled preview of the markdown as it is written by the user.
 

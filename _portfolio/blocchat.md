@@ -2,7 +2,7 @@
 layout: post
 title: BlocChat
 feature-img: "img/sample_feature_img.png"
-thumbnail-path: "https://d13yacurqjgara.cloudfront.net/users/3217/screenshots/2030966/blocjams_1x.png"
+thumbnail-path: "img/BlocChat_screenshot.gif"
 short-description: Simple, chat room application built with AngularJS and Rails.
 
 ---
@@ -26,7 +26,7 @@ On the Angular side, I simply created a ChatRooms service, which was responsible
 ### Allow User to Choose Username
 
 Without saving user data to the database, I wanted to require users to select a username the first time they accessed the site (per browser session). The solution I came to was to make use of the `ngCookies` Module. Then I created a `.run()` function for my main module that would check to see if a user had already registered a username. First, I checked for a cookie called "currentBlocChatUser", and then required the user to register, if the cookie was not present:
-```javascript
+{% highlight javascript%}
 if (!$cookies.get("currentBlocChatUser") || $cookies.get("currentBlocChatUser") === '') {
       $uibModal.open({
         ...
@@ -36,7 +36,8 @@ if (!$cookies.get("currentBlocChatUser") || $cookies.get("currentBlocChatUser") 
         console.log(rejection);
       });
     }
-```
+{% endhighlight %}
+
 # Features
 
 * User must register a username on their first visit to site (per browser session)

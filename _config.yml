@@ -1,6 +1,6 @@
 # SITE CONFIGURATION
-baseurl: "/sleekramer.github.io" # the subpath of your site, e.g. /blog/
-url: "http://sleekrmaer.github.io" # the base hostname & protocol for your site
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://sleekramer.github.io" # the base hostname & protocol for your site
 
 # THEME-SPECIFIC CONFIGURATION
 theme:
@@ -12,7 +12,9 @@ theme:
 
   # Header and footer text
   header_text: >
-     <h1>Designer, Developer, Writer, and Dad.</h1>
+     <h3>Junior Web Developer, Avid Learner, Endurance Athlete.</h3>
+     <h6>Specializing in Ruby on Rails, Javascript and AngularJS.</h6>
+
   header_text_feature_image:
   footer_text: >
    Powered by <a href="http://jekyllrb.com">Jekyll</a> with <a href="https://rohanchandra.github.io/project/type/">Type Theme</a>
@@ -35,7 +37,7 @@ theme:
   stack_exchange:  # Full URL
   steam:
   tumblr:
-  twitter: "joeykirk"
+  twitter:
   wordpress:
   youtube:
 
