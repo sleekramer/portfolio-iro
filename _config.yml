@@ -8,7 +8,7 @@ theme:
   title: Steven Lee-Kramer
   avatar: avatar.png
   gravatar: # Email MD5 hash
-  description: "A website with blog posts and pages" # used by search engines
+  description: "Portfolio - Steven Lee-Kramer, ruby on rails, javascript web developer" # used by search engines
 
   # Header and footer text
   header_text: >
